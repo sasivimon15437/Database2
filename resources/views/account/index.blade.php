@@ -6,6 +6,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                <div>
+                    <a class="btn btn-primary" href="{{ route('account.create') }}">เปิดบัญชี</a>
+                    <a class="btn btn-primary" href="">โอนเงิน</a>
+                    <a class="btn btn-primary" href="">คำนวณภาษี</a>
+                </div>
                 <table border = 1>
                 <tr>
                     <td>เลขบัญชี</td>
@@ -33,7 +38,11 @@
                     <td>{{ $acc ->ZipCode }}</td>
                     <td>{{ $acc ->DateOp }}</td>
                     <td>{{ $acc ->Balance }}</td>
-                </tr>
+                    <td>
+                        Edit
+                        Delete
+                    </td>
+                    
                 @endforeach
                 </table>
                 </div>

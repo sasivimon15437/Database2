@@ -25,7 +25,7 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        return view('account.create');
     }
 
     /**
@@ -36,7 +36,34 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'ACC_No'=>'required',
+                'Type_No'=>'required',
+                'ACC_Name'=>'required',
+                'ACC_Surname'=>'required',
+                'Address'=>'required',
+                'SubDistrict'=>'required',
+                'District'=>'required',
+                'Province'=>'required',
+                'ZipCode'=>'required',
+                'DateOp'=>'required',
+                'Balance'=>'required'
+        ]);
+
+        DB::table('Account')->insert([
+            'ACC_No'=>$request->ACC_No,
+            'Type_No'=>$request->Type_No,
+            'ACC_Name'=>$request->ACC_Name,
+            'ACC_Surname'=>$request->ACC_Surname,
+            'Address'=>$request->Address,
+            'SubDistrict'=>$request->SubDistrict,
+            'District'=>$request->District,
+            'Province'=>$request->Province,
+            'ZipCode'=>$request->ZipCode,
+            'DateOp'=> now(),
+            'Balance'=>$request->Balance
+        ]);
+        return redirect('account');    
     }
 
     /**
